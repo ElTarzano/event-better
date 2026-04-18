@@ -130,46 +130,23 @@ body.observe-top .nav-inner {
   color: var(--blue);
   white-space: nowrap;
   overflow: hidden;
-  max-width: 200px;
-  transition: max-width 0.4s var(--ease), opacity 0.3s var(--ease);
+  /* flex-grow wypycha hamburger na prawy kraniec */
+  flex-grow: 1;
+  text-align: center;
+  max-width: 400px;
+  transition: max-width 0.45s var(--ease), opacity 0.3s var(--ease), flex-grow 0.45s var(--ease);
 }
 
+/* przy scrollu tytuł znika → hamburger "jeździ" na prawo */
 body.observe-top .nav-title {
   max-width: 0;
   opacity: 0;
+  flex-grow: 0;
 }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  margin-left: auto;
-}
-
-.nav-link {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(0, 163, 255, 0.65);
-  position: relative;
-  transition: color 0.2s;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--blue);
-  transition: width 0.3s var(--ease);
-}
-
-.nav-link:hover { color: var(--white); }
-.nav-link:hover::after,
-.nav-link.active::after { width: 100%; }
-.nav-link.active { color: var(--white); }
+/* nav-links nieużywane w tym layoucie — ukryte */
+.nav-links { display: none; }
+.nav-link  { display: none; }
 
 /* ─────────────────────────────────────────
    HAMBURGER
@@ -564,7 +541,5 @@ body.observe-top .nav-title {
 /* ─────────────────────────────────────────
    RESPONSIVE — HAMBURGER BREAKPOINT
 ───────────────────────────────────────── */
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-}
+/* Hamburger widoczny zawsze — brak breakpointa */
+.hamburger { display: flex; }
