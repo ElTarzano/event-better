@@ -121,7 +121,7 @@ body.observe-top .nav-inner {
 @media (min-width: 641px) {
   body.observe-top .nav-inner {
     max-width: 100%;
-    padding-inline: 0.75rem;
+    padding-inline: 1.75rem;
   }
 }
 
