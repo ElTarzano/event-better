@@ -163,7 +163,8 @@ body.observe-top .nav-title {
 .hamburger span {
   display: block;
   width: 24px;
-  height: 1.5px;
+  height: 2px;
+  border-radius: 0;
   background: var(--blue);
   transform-origin: center;
   transition: transform 0.35s var(--ease), opacity 0.25s, width 0.3s var(--ease);
