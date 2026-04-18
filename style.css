@@ -104,21 +104,22 @@ body.scrolled nav {
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding-inline: 1.5rem;
-  max-width: 860px;
-  margin-inline: auto;
+  justify-content: space-between;
+  padding-inline: 2rem;
   border-bottom: 1px solid var(--border);
-  transition: border-color 0.3s var(--ease);
+  transition: border-color 0.05s var(--ease), padding-inline 0.5s var(--ease);
+  position: relative;
 }
 
 body.observe-top .nav-inner {
   border-color: transparent;
+  padding-inline: 1rem;
 }
 
 .nav-logo {
   flex-shrink: 0;
   transition: transform 0.3s var(--ease);
+  z-index: 1;
 }
 .nav-logo:hover { transform: scale(1.08); }
 
@@ -129,18 +130,19 @@ body.observe-top .nav-inner {
   color: var(--black);
   white-space: nowrap;
   overflow: hidden;
-  flex-grow: 1;
-  text-align: left;
+  /* wyśrodkowany absolutnie żeby logo i hamburger mogły być na krańcach */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   max-width: 400px;
-  transition: max-width 0.45s var(--ease), opacity 0.3s var(--ease), flex-grow 0.45s var(--ease);
+  opacity: 1;
+  transition: opacity 0.35s var(--ease), max-width 0.45s var(--ease);
+  pointer-events: none;
 }
 
-@media (min-width: 641px) {
-  body.observe-top .nav-title {
-    max-width: 0;
-    opacity: 0;
-    flex-grow: 0;
-  }
+body.observe-top .nav-title {
+  opacity: 0;
+  max-width: 0;
 }
 
 .nav-links { display: none; }
