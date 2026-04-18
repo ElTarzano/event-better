@@ -18,21 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sentinelObserver.observe(sentinel);
   }
 
-  // Hero zone — białe kolory nav gdy hero jest widoczny
-  const heroSection = document.getElementById("hero");
-  if (heroSection) {
-    const heroObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          body.classList.add("hero-zone");
-        } else {
-          body.classList.remove("hero-zone");
-        }
-      },
-      { threshold: 0.1 }
-    );
-    heroObserver.observe(heroSection);
-  }
+
 
 
   /* ── 2. HAMBURGER / MOBILE MENU ── */
