@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────
    TOKENS
 ───────────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
 
 :root {
   --white:        #f7f7f7;
@@ -15,8 +15,8 @@
   --text-muted:   rgba(26, 26, 26, 0.5);
   --border:       rgba(26, 26, 26, 0.12);
   --nav-h:        80px;
-  --serif:        "Playfair Display", Georgia, serif;
-  --sans:         "DM Sans", sans-serif;
+  --serif:        "Space Grotesk", sans-serif;
+  --sans:         "Space Grotesk", sans-serif;
   --max-w:        860px;
   --ease:         cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -60,11 +60,6 @@ h1 {
   font-size: clamp(3.5rem, 10vw, 7rem);
   line-height: 1.0;
   color: var(--black);
-}
-
-h1 em {
-  font-style: italic;
-  font-weight: 700;
 }
 
 h2 {
