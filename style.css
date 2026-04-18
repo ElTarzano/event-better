@@ -95,9 +95,7 @@ nav {
 }
 
 body.scrolled nav {
-  background: rgba(0, 21, 35, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
 }
 
 .nav-inner {
