@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────
    TOKENS
 ───────────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap");
 
 :root {
   --white:        #f7f7f7;
@@ -15,8 +15,8 @@
   --text-muted:   rgba(26, 26, 26, 0.5);
   --border:       rgba(26, 26, 26, 0.12);
   --nav-h:        80px;
-  --serif:        "Abril Fatface", cursive;
-  --sans:         "Inter", sans-serif;
+  --serif:        "Playfair Display", Georgia, serif;
+  --sans:         "DM Sans", sans-serif;
   --max-w:        860px;
   --ease:         cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -60,6 +60,11 @@ h1 {
   font-size: clamp(3.5rem, 10vw, 7rem);
   line-height: 1.0;
   color: var(--black);
+}
+
+h1 em {
+  font-style: italic;
+  font-weight: 700;
 }
 
 h2 {
@@ -117,10 +122,9 @@ body.observe-top .nav-inner {
 
 .nav-logo {
   flex-shrink: 0;
-  color: var(--red);
-  transition: color 0.2s, transform 0.3s var(--ease);
+  transition: transform 0.3s var(--ease);
 }
-.nav-logo:hover { color: var(--black); transform: scale(1.1); }
+.nav-logo:hover { transform: scale(1.08); }
 
 .nav-title {
   font-size: 1rem;
