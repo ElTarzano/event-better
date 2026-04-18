@@ -139,13 +139,12 @@ body.observe-top .nav-inner {
   color: var(--black);
   white-space: nowrap;
   overflow: hidden;
-  /* wyśrodkowany absolutnie żeby logo i hamburger mogły być na krańcach */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   max-width: 400px;
   opacity: 1;
-  transition: opacity 0.35s var(--ease), max-width 0.45s var(--ease);
+  transition: opacity 0.35s var(--ease), max-width 0.45s var(--ease), color 0.4s var(--ease);
   pointer-events: none;
 }
 
@@ -154,8 +153,33 @@ body.observe-top .nav-title {
   max-width: 0;
 }
 
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 0;
+  background: var(--black);
+  transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), width 0.3s var(--ease), background 0.4s var(--ease);
+}
+
 .nav-links { display: none; }
 .nav-link  { display: none; }
+
+/* ── Białe nav gdy jesteśmy w sekcji hero ── */
+body.hero-zone .nav-title,
+body.hero-zone .hamburger span {
+  color: #ffffff;
+}
+body.hero-zone .hamburger span {
+  background: #ffffff;
+}
+body.hero-zone .nav-inner {
+  border-color: rgba(255,255,255,0.35);
+}
+body.hero-zone.observe-top .nav-inner {
+  border-color: transparent;
+}
 
 /* ─────────────────────────────────────────
    HAMBURGER
@@ -266,7 +290,7 @@ body.observe-top .nav-title {
    HERO
 ───────────────────────────────────────── */
 .hero {
-  padding-top: var(--nav-h);
+  padding-top: 0;
   min-height: 100svh;
   display: flex;
   align-items: center;
@@ -287,35 +311,41 @@ body.observe-top .nav-title {
   object-position: center;
 }
 
-/* ciemny overlay żeby tekst był czytelny */
+/* biały overlay rozjaśniający zdjęcie */
 .hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.15) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.82) 0%,
+    rgba(255,255,255,0.55) 50%,
+    rgba(255,255,255,0.25) 100%
+  );
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
+  padding-top: var(--nav-h);
 }
 
 .hero-eyebrow {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+  color: var(--red);
   margin-bottom: 1.25rem;
 }
 
 .hero h1 {
-  color: #ffffff;
+  color: var(--black);
   margin-bottom: 1.5rem;
 }
 
 .hero-lead {
   font-size: 1.05rem;
-  color: rgba(255,255,255,0.8);
+  color: #2a2a2a;
   max-width: 44ch;
   margin-bottom: 2.5rem;
 }
@@ -332,19 +362,21 @@ body.observe-top .nav-title {
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  gap: 4rem;
+  align-items: stretch;
+  margin-top: 1rem;
 }
 
 .about-text {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  justify-content: center;
 }
 
 .about-photo {
-  aspect-ratio: 4/3;
   overflow: hidden;
+  margin-block: -2rem; /* "wylatuje" poza padding sekcji */
 }
 
 .about-photo img {
@@ -352,6 +384,7 @@ body.observe-top .nav-title {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  display: block;
   transition: transform 0.6s var(--ease);
 }
 
@@ -362,7 +395,11 @@ body.observe-top .nav-title {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .about-photo { order: -1; }
+  .about-photo {
+    order: -1;
+    margin-block: 0;
+    aspect-ratio: 4/3;
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -449,13 +486,14 @@ body.observe-top .nav-title {
   background: var(--bg);
   display: flex;
   flex-direction: column;
-  transition: background 0.3s var(--ease);
+  transition: background 0.5s var(--ease);
 }
 
 .card:hover { background: var(--red-dim); }
 
 .card-photo {
-  aspect-ratio: 4/3;
+  position: relative;
+  aspect-ratio: 3/2;
   overflow: hidden;
 }
 
@@ -463,23 +501,19 @@ body.observe-top .nav-title {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s var(--ease);
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
 }
 
-.card:hover .card-photo img { transform: scale(1.05); }
+.card:hover .card-photo img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
 
 .card-body {
   padding: 1.5rem 1.75rem 2rem;
   flex: 1;
-}
-
-.card-num {
-  font-family: var(--serif);
-  font-size: 2rem;
-  color: rgba(226, 0, 26, 0.15);
-  display: block;
-  margin-bottom: 0.75rem;
-  line-height: 1;
 }
 
 @media (max-width: 700px) {
