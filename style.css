@@ -12,8 +12,8 @@
   --bg:           #ffffff;
   --bg-card:      #fafafa;
   --text:         #1a1a1a;
-  --text-muted:   rgba(26, 26, 26, 0.5);
-  --border:       rgba(26, 26, 26, 0.12);
+  --text-muted:   #4a4a4a;
+  --border:       rgba(26, 26, 26, 0.18);
   --nav-h:        80px;
   --serif:        "Space Grotesk", sans-serif;
   --sans:         "Space Grotesk", sans-serif;
@@ -407,7 +407,7 @@ body.observe-top .nav-title {
 
 .testimonial p {
   font-size: 1rem;
-  color: rgba(26, 26, 26, 0.65);
+  color: #3a3a3a;
   font-style: italic;
   margin-bottom: 0.5rem;
 }
@@ -455,7 +455,7 @@ body.observe-top .nav-title {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #3a3a3a;
 }
 
 .form-group input,
@@ -574,7 +574,7 @@ body.observe-top .nav-title {
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #4a4a4a;
   position: relative;
   z-index: 1;
 }
