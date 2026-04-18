@@ -117,7 +117,7 @@ body.observe-top .nav-inner {
 
 @media (min-width: 641px) {
   body.observe-top .nav-inner {
-    padding-inline: 1rem;
+    padding-inline: 0.75rem;
   }
 }
 
