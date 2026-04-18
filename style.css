@@ -4,18 +4,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500&display=swap");
 
 :root {
-  --white:   #f7f7f7;
-  --black:   #222;
-  --blue:    #00a3ff;
-  --blue-dim: rgba(0, 163, 255, 0.12);
-  --blue-border: rgba(0, 163, 255, 0.25);
-  --bg:      #001523;
-  --bg-card: rgba(0, 163, 255, 0.05);
-  --nav-h:   80px;
-  --serif:   "Abril Fatface", cursive;
-  --sans:    "Inter", sans-serif;
-  --max-w:   860px;
-  --ease:    cubic-bezier(0.4, 0, 0.2, 1);
+  --white:        #f7f7f7;
+  --black:        #1a1a1a;
+  --red:          #e2001a;
+  --red-dim:      rgba(226, 0, 26, 0.07);
+  --red-border:   rgba(226, 0, 26, 0.2);
+  --bg:           #ffffff;
+  --bg-card:      #fafafa;
+  --text:         #1a1a1a;
+  --text-muted:   rgba(26, 26, 26, 0.5);
+  --border:       rgba(26, 26, 26, 0.12);
+  --nav-h:        80px;
+  --serif:        "Abril Fatface", cursive;
+  --sans:         "Inter", sans-serif;
+  --max-w:        860px;
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ─────────────────────────────────────────
@@ -29,8 +32,8 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at 30% 20%, #002337 0%, #001523 60%, #000e1a 100%);
-  color: var(--blue);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--sans);
   font-weight: 300;
   letter-spacing: 0.03em;
@@ -56,14 +59,14 @@ h1 {
   font-family: var(--serif);
   font-size: clamp(3.5rem, 10vw, 7rem);
   line-height: 1.0;
-  color: var(--white);
+  color: var(--black);
 }
 
 h2 {
   font-family: var(--serif);
   font-size: clamp(2.2rem, 6vw, 4.5rem);
   line-height: 1.05;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 2rem;
 }
 
@@ -73,11 +76,11 @@ h3 {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 0.75rem;
 }
 
-p { color: rgba(0, 163, 255, 0.8); }
+p { color: var(--text-muted); }
 
 /* ─────────────────────────────────────────
    NAV
@@ -89,9 +92,8 @@ nav {
   z-index: 100;
   height: var(--nav-h);
   padding-block: 0;
-  /* glassmorphism on scroll */
   background: transparent;
-  transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
+  transition: background 0.4s var(--ease);
 }
 
 body.scrolled nav {
@@ -103,11 +105,10 @@ body.scrolled nav {
   display: flex;
   align-items: center;
   gap: 2rem;
-  border-bottom: 1px solid var(--blue-border);
+  border-bottom: 1px solid var(--border);
   transition: border-color 0.3s var(--ease), max-width 0.5s var(--ease);
 }
 
-/* When at top: hide border, expand width */
 body.observe-top .nav-inner {
   border-color: transparent;
   max-width: 100%;
@@ -116,33 +117,30 @@ body.observe-top .nav-inner {
 
 .nav-logo {
   flex-shrink: 0;
-  color: var(--blue);
+  color: var(--red);
   transition: color 0.2s, transform 0.3s var(--ease);
 }
-.nav-logo:hover { color: var(--white); transform: scale(1.1); }
+.nav-logo:hover { color: var(--black); transform: scale(1.1); }
 
 .nav-title {
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.18em;
-  color: var(--blue);
+  color: var(--black);
   white-space: nowrap;
   overflow: hidden;
-  /* flex-grow wypycha hamburger na prawy kraniec */
   flex-grow: 1;
   text-align: center;
   max-width: 400px;
   transition: max-width 0.45s var(--ease), opacity 0.3s var(--ease), flex-grow 0.45s var(--ease);
 }
 
-/* przy scrollu tytuł znika → hamburger "jeździ" na prawo */
 body.observe-top .nav-title {
   max-width: 0;
   opacity: 0;
   flex-grow: 0;
 }
 
-/* nav-links nieużywane w tym layoucie — ukryte */
 .nav-links { display: none; }
 .nav-link  { display: none; }
 
@@ -150,7 +148,7 @@ body.observe-top .nav-title {
    HAMBURGER
 ───────────────────────────────────────── */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   background: none;
@@ -165,7 +163,7 @@ body.observe-top .nav-title {
   width: 24px;
   height: 2px;
   border-radius: 0;
-  background: var(--blue);
+  background: var(--black);
   transform-origin: center;
   transition: transform 0.35s var(--ease), opacity 0.25s, width 0.3s var(--ease);
 }
@@ -188,7 +186,7 @@ body.observe-top .nav-title {
   position: fixed;
   inset: 0;
   z-index: 90;
-  background: rgba(0, 15, 26, 0.97);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
@@ -213,8 +211,7 @@ body.observe-top .nav-title {
 .mobile-link {
   font-family: var(--serif);
   font-size: clamp(2.5rem, 8vw, 4rem);
-  color: rgba(0, 163, 255, 0.4);
-  transition: color 0.2s, letter-spacing 0.3s var(--ease);
+  color: rgba(26, 26, 26, 0.25);
   display: block;
   padding: 0.25rem 1rem;
   text-align: center;
@@ -233,14 +230,14 @@ body.observe-top .nav-title {
 .mobile-menu.open .mobile-link:nth-child(3) { transition-delay: 0.15s; }
 .mobile-menu.open .mobile-link:nth-child(4) { transition-delay: 0.20s; }
 
-.mobile-link:hover { color: var(--white); letter-spacing: 0.04em; }
+.mobile-link:hover { color: var(--red); }
 
 /* ─────────────────────────────────────────
    SECTIONS
 ───────────────────────────────────────── */
 .section {
   padding-block: clamp(5rem, 12vw, 9rem);
-  border-bottom: 1px solid var(--blue-border);
+  border-bottom: 1px solid var(--border);
 }
 
 .section--last { border-bottom: none; }
@@ -249,7 +246,7 @@ body.observe-top .nav-title {
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(0, 163, 255, 0.45);
+  color: var(--red);
   margin-bottom: 1.25rem;
 }
 
@@ -267,7 +264,7 @@ body.observe-top .nav-title {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--red);
   margin-bottom: 1.25rem;
 }
 
@@ -277,7 +274,7 @@ body.observe-top .nav-title {
 
 .hero-lead {
   font-size: 1.05rem;
-  color: rgba(0, 163, 255, 0.7);
+  color: var(--text-muted);
   max-width: 44ch;
   margin-bottom: 2.5rem;
 }
@@ -291,40 +288,39 @@ body.observe-top .nav-title {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--bg);
-  background: var(--blue);
-  border: 1px solid var(--blue);
+  color: var(--white);
+  background: var(--red);
+  border: 1px solid var(--red);
   padding: 0.85rem 2rem;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: color 0.3s var(--ease), background 0.3s var(--ease);
+  transition: color 0.3s var(--ease);
 }
 
 .btn::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--white);
+  background: var(--black);
   transform: translateX(-101%);
   transition: transform 0.35s var(--ease);
 }
 
 .btn:hover::before { transform: translateX(0); }
-.btn:hover { color: var(--black); }
+.btn:hover { color: var(--white); }
 
 .btn--submit {
   width: 100%;
   padding: 1rem;
   font-size: 0.8rem;
   background: transparent;
-  color: var(--blue);
-  border: 1px solid var(--blue-border);
-  position: relative;
+  color: var(--red);
+  border: 1px solid var(--red-border);
 }
 
-.btn--submit::before { background: var(--blue); }
-.btn--submit:hover { color: var(--bg); }
+.btn--submit::before { background: var(--red); }
+.btn--submit:hover { color: var(--white); }
 
 .btn-sending { display: none; }
 .btn--loading .btn-label { display: none; }
@@ -350,8 +346,8 @@ body.observe-top .nav-title {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--blue-border);
-  border: 1px solid var(--blue-border);
+  background: var(--border);
+  border: 1px solid var(--border);
   margin-top: 1rem;
 }
 
@@ -361,12 +357,12 @@ body.observe-top .nav-title {
   transition: background 0.3s var(--ease);
 }
 
-.card:hover { background: var(--blue-dim); }
+.card:hover { background: var(--red-dim); }
 
 .card-num {
   font-family: var(--serif);
   font-size: 2.5rem;
-  color: rgba(0, 163, 255, 0.18);
+  color: rgba(226, 0, 26, 0.15);
   display: block;
   margin-bottom: 1rem;
   line-height: 1;
@@ -385,13 +381,13 @@ body.observe-top .nav-title {
 }
 
 .testimonial {
-  border-left: 1px solid var(--blue-border);
+  border-left: 2px solid var(--red-border);
   padding-left: 1.5rem;
 }
 
 .testimonial p {
   font-size: 1rem;
-  color: rgba(247, 247, 247, 0.7);
+  color: rgba(26, 26, 26, 0.65);
   font-style: italic;
   margin-bottom: 0.5rem;
 }
@@ -399,7 +395,7 @@ body.observe-top .nav-title {
 .testimonial cite {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: rgba(0, 163, 255, 0.5);
+  color: var(--red);
   font-style: normal;
 }
 
@@ -439,15 +435,15 @@ body.observe-top .nav-title {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(0, 163, 255, 0.55);
+  color: var(--text-muted);
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   background: transparent;
-  border: 1px solid var(--blue-border);
-  color: var(--white);
+  border: 1px solid var(--border);
+  color: var(--black);
   font-family: var(--sans);
   font-size: 0.9rem;
   font-weight: 300;
@@ -461,27 +457,27 @@ body.observe-top .nav-title {
 }
 
 .form-group select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300a3ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23e2001a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   cursor: pointer;
 }
 
 .form-group select option {
-  background: #001523;
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
 }
 
 .form-group textarea { resize: vertical; min-height: 130px; }
 
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: rgba(0, 163, 255, 0.3); }
+.form-group textarea::placeholder { color: rgba(26, 26, 26, 0.25); }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--blue);
-  background: var(--blue-dim);
+  border-color: var(--red);
+  background: var(--red-dim);
 }
 
 .form-group input:invalid:not(:placeholder-shown),
@@ -495,8 +491,8 @@ body.observe-top .nav-title {
   display: none;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
-  color: var(--blue);
-  border: 1px solid var(--blue-border);
+  color: var(--red);
+  border: 1px solid var(--red-border);
   padding: 1rem;
   text-align: center;
 }
@@ -508,7 +504,7 @@ body.observe-top .nav-title {
 ───────────────────────────────────────── */
 .footer {
   padding-block: 2rem;
-  border-top: 1px solid var(--blue-border);
+  border-top: 1px solid var(--border);
 }
 
 .footer .container {
@@ -518,7 +514,7 @@ body.observe-top .nav-title {
   flex-wrap: wrap;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  color: rgba(0, 163, 255, 0.4);
+  color: var(--text-muted);
 }
 
 .footer-sep { opacity: 0.3; }
@@ -537,8 +533,5 @@ body.observe-top .nav-title {
   transform: translateY(0);
 }
 
-/* ─────────────────────────────────────────
-   RESPONSIVE — HAMBURGER BREAKPOINT
-───────────────────────────────────────── */
-/* Hamburger widoczny zawsze — brak breakpointa */
+/* Hamburger widoczny zawsze */
 .hamburger { display: flex; }
