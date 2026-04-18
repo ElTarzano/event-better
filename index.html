@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maciek Orłowski — Trener Wspinaczki</title>
+  <meta name="description" content="Profesjonalne treningi wspinaczkowe. Rozwiń swój potencjał z doświadczonym trenerem." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Sentinel dla IntersectionObserver -->
+  <div id="observe-top"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="main-nav">
+    <div class="nav-inner container">
+      <a href="#hero" class="nav-logo" aria-label="Strona główna">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 24 L10 10 L16 18 L20 13 L24 24Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+          <circle cx="21" cy="8" r="2.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+        </svg>
+      </a>
+
+      <span class="nav-title">MACIEK ORŁOWSKI</span>
+
+      <button class="hamburger" id="hamburger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#o-mnie" class="nav-link">O mnie</a></li>
+        <li><a href="#oferta" class="nav-link">Oferta</a></li>
+        <li><a href="#opinie" class="nav-link">Opinie</a></li>
+        <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE MENU OVERLAY ── -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menu nawigacji">
+    <ul role="list">
+      <li><a href="#o-mnie" class="mobile-link">O mnie</a></li>
+      <li><a href="#oferta" class="mobile-link">Oferta</a></li>
+      <li><a href="#opinie" class="mobile-link">Opinie</a></li>
+      <li><a href="#kontakt" class="mobile-link">Kontakt</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <p class="hero-eyebrow">Trener wspinaczki sportowej</p>
+        <h1>Wspinaj się<br/>wyżej.</h1>
+        <p class="hero-lead">Indywidualne podejście, sprawdzone metody, realne wyniki.<br/>Treningi w Krakowie i online.</p>
+        <a href="#kontakt" class="btn">Zacznijmy razem</a>
+      </div>
+    </section>
+
+    <!-- ── O MNIE ── -->
+    <section id="o-mnie" class="section">
+      <div class="container">
+        <p class="section-label">01 — O mnie</p>
+        <h2>Pasja zamieniona<br/>w metodę.</h2>
+        <div class="text-columns">
+          <p>Wspinaczką zajmuję się od ponad 10 lat. Łączę doświadczenie zawodnika z wiedzą trenerską, żeby dawać ci narzędzia, które naprawdę działają — bez zbędnego teoretyzowania.</p>
+          <p>Specjalizuję się w treningu siłowym dla wspinaczy, technice ruchu oraz planowaniu długoterminowego rozwoju. Pracuję z osobami na każdym poziomie zaawansowania — od zupełnych początkujących po zawodników startujących w zawodach.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OFERTA ── -->
+    <section id="oferta" class="section">
+      <div class="container">
+        <p class="section-label">02 — Oferta</p>
+        <h2>Co mogę<br/>dla ciebie zrobić.</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="card-num">I</span>
+            <h3>Trening indywidualny</h3>
+            <p>Sesja 1:1 dostosowana do twoich słabych punktów i celów. Ściana lub siłownia — ty wybierasz.</p>
+          </div>
+          <div class="card">
+            <span class="card-num">II</span>
+            <h3>Plan treningowy online</h3>
+            <p>Spersonalizowany plan na 4–12 tygodni z analizą wideo i cotygodniowym feedbackiem przez Whatsapp.</p>
+          </div>
+          <div class="card">
+            <span class="card-num">III</span>
+            <h3>Konsultacja techniczna</h3>
+            <p>Jedna sesja analityczna — ocena techniki, identyfikacja błędów i konkretny plan naprawczy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OPINIE ── -->
+    <section id="opinie" class="section">
+      <div class="container">
+        <p class="section-label">03 — Opinie</p>
+        <h2>Co mówią<br/>podopieczni.</h2>
+        <div class="testimonials">
+          <blockquote class="testimonial">
+            <p>„Po 3 miesiącach współpracy przeszłam z 6a na 7a. Maciek potrafi wytłumaczyć każdy ruch w sposób, który natychmiast ma sens dla ciała."</p>
+            <cite>— Karolina W., Kraków</cite>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>„Trening online działał lepiej niż myślałem. Szczegółowe analizy wideo i dostępność przez Whatsapp robiły robotę."</p>
+            <cite>— Piotr M., Warszawa</cite>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>„Wiedza merytoryczna na najwyższym poziomie, zero lania wody. Każda sesja to konkretna robota."</p>
+            <cite>— Tomasz K., Wrocław</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── KONTAKT ── -->
+    <section id="kontakt" class="section section--last">
+      <div class="container">
+        <p class="section-label">04 — Kontakt</p>
+        <h2>Napisz<br/>do mnie.</h2>
+        <p class="contact-lead">Opowiedz mi o swoich celach — odezwę się w ciągu 24 godzin.</p>
+
+        <!-- Netlify Forms -->
+        <form
+          name="kontakt"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contact-form"
+          id="contact-form"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="kontakt" />
+          <p class="hidden" aria-hidden="true">
+            <label>Nie wypełniaj: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="imie">Imię</label>
+              <input type="text" id="imie" name="imie" autocomplete="given-name" required placeholder="Jan" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="jan@example.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="temat">Temat</label>
+            <select id="temat" name="temat" required>
+              <option value="" disabled selected>Wybierz rodzaj współpracy…</option>
+              <option value="trening-indywidualny">Trening indywidualny</option>
+              <option value="plan-online">Plan treningowy online</option>
+              <option value="konsultacja">Konsultacja techniczna</option>
+              <option value="inne">Inne</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="wiadomosc">Wiadomość</label>
+            <textarea id="wiadomosc" name="wiadomosc" rows="5" required placeholder="Opisz swój poziom i cele…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--submit">
+            <span class="btn-label">Wyślij wiadomość</span>
+            <span class="btn-sending" aria-hidden="true">Wysyłanie…</span>
+          </button>
+
+          <p class="form-success" id="form-success" aria-live="polite" role="status">
+            Wiadomość wysłana — odezwę się wkrótce! 🧗
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year"></span> Maciek Orłowski</span>
+      <span class="footer-sep">—</span>
+      <span>Trener wspinaczki, Kraków</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
