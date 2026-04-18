@@ -207,7 +207,7 @@ body.observe-top .nav-title {
   position: fixed;
   inset: 0;
   z-index: 90;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(255, 255, 255, 0.17);
   backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
@@ -252,6 +252,7 @@ body.observe-top .nav-title {
 .mobile-menu.open .mobile-link:nth-child(4) { transition-delay: 0.20s; }
 
 .mobile-link:hover { color: var(--red); }
+.mobile-link { color: var(--black); }
 
 /* ─────────────────────────────────────────
    SECTIONS
