@@ -47,7 +47,7 @@ ul { list-style: none; }
 img { display: block; max-width: 100%; }
 
 .container {
-  max-width: 60vw;
+  max-width: 860px;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
@@ -105,17 +105,15 @@ body.scrolled nav {
   display: flex;
   align-items: center;
   gap: 2rem;
-  max-width: 60vw;
-  margin-inline: auto;
   padding-inline: 1.5rem;
+  max-width: 860px;
+  margin-inline: auto;
   border-bottom: 1px solid var(--border);
-  transition: border-color 0.3s var(--ease), max-width 0.5s var(--ease), padding 0.5s var(--ease);
+  transition: border-color 0.3s var(--ease);
 }
 
 body.observe-top .nav-inner {
   border-color: transparent;
-  max-width: 90%;
-  padding-inline: 2rem;
 }
 
 .nav-logo {
@@ -137,10 +135,12 @@ body.observe-top .nav-inner {
   transition: max-width 0.45s var(--ease), opacity 0.3s var(--ease), flex-grow 0.45s var(--ease);
 }
 
-body.observe-top .nav-title {
-  max-width: 0;
-  opacity: 0;
-  flex-grow: 0;
+@media (min-width: 641px) {
+  body.observe-top .nav-title {
+    max-width: 0;
+    opacity: 0;
+    flex-grow: 0;
+  }
 }
 
 .nav-links { display: none; }
@@ -151,24 +151,34 @@ body.observe-top .nav-title {
 ───────────────────────────────────────── */
 .hamburger {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
-  font-size: 1.25rem;
-  color: var(--black);
-  transition: color 0.2s;
+  padding: 6px;
 }
 
-.hamburger:hover { color: var(--red); }
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 0;
+  background: var(--black);
+  transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), width 0.3s var(--ease);
+}
 
-.hamburger .fa-xmark { display: none; }
-.hamburger .fa-bars  { display: block; }
-
-.hamburger[aria-expanded="true"] .fa-bars  { display: none; }
-.hamburger[aria-expanded="true"] .fa-xmark { display: block; }
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* ─────────────────────────────────────────
    MOBILE MENU OVERLAY
