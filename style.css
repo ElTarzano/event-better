@@ -105,9 +105,12 @@ body.scrolled nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 2rem;
+  padding-inline: 1.5rem;
+  max-width: 860px;
+  width: 100%;
+  margin-inline: auto;
   border-bottom: 1px solid var(--border);
-  transition: border-color 0.05s var(--ease), padding-inline 0.5s var(--ease);
+  transition: border-color 0.05s var(--ease), max-width 0.5s var(--ease), padding-inline 0.5s var(--ease);
   position: relative;
 }
 
@@ -117,6 +120,7 @@ body.observe-top .nav-inner {
 
 @media (min-width: 641px) {
   body.observe-top .nav-inner {
+    max-width: 100%;
     padding-inline: 0.75rem;
   }
 }
