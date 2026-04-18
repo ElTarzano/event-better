@@ -123,14 +123,14 @@ body.observe-top .nav-inner {
 .nav-logo:hover { color: var(--black); transform: scale(1.1); }
 
 .nav-title {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   color: var(--black);
   white-space: nowrap;
   overflow: hidden;
   flex-grow: 1;
-  text-align: center;
+  text-align: left;
   max-width: 400px;
   transition: max-width 0.45s var(--ease), opacity 0.3s var(--ease), flex-grow 0.45s var(--ease);
 }
@@ -319,8 +319,16 @@ body.observe-top .nav-title {
   border: 1px solid var(--border);
 }
 
-.btn--submit::before { background: var(--black); }
-.btn--submit:hover { color: var(--white); }
+/* wyłączamy efekt wypełnienia z bazowego .btn */
+.btn--submit::before { display: none; }
+
+.btn--submit:hover {
+  border-color: var(--black);
+  background: transparent;
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .btn-sending { display: none; }
 .btn--loading .btn-label { display: none; }
