@@ -144,7 +144,7 @@ body.observe-top .nav-inner {
   transform: translateX(-50%);
   max-width: 400px;
   opacity: 1;
-  transition: opacity 0.35s var(--ease), max-width 0.45s var(--ease), color 0.4s var(--ease);
+  transition: opacity 0.35s var(--ease), max-width 0.45s var(--ease);
   pointer-events: none;
 }
 
@@ -160,26 +160,11 @@ body.observe-top .nav-title {
   border-radius: 0;
   background: var(--black);
   transform-origin: center;
-  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), width 0.3s var(--ease), background 0.4s var(--ease);
+  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), width 0.3s var(--ease);
 }
 
 .nav-links { display: none; }
 .nav-link  { display: none; }
-
-/* ── Białe nav gdy jesteśmy w sekcji hero ── */
-body.hero-zone .nav-title,
-body.hero-zone .hamburger span {
-  color: #ffffff;
-}
-body.hero-zone .hamburger span {
-  background: #ffffff;
-}
-body.hero-zone .nav-inner {
-  border-color: rgba(255,255,255,0.35);
-}
-body.hero-zone.observe-top .nav-inner {
-  border-color: transparent;
-}
 
 /* ─────────────────────────────────────────
    HAMBURGER
