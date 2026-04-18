@@ -113,7 +113,12 @@ body.scrolled nav {
 
 body.observe-top .nav-inner {
   border-color: transparent;
-  padding-inline: 1rem;
+}
+
+@media (min-width: 641px) {
+  body.observe-top .nav-inner {
+    padding-inline: 1rem;
+  }
 }
 
 .nav-logo {
